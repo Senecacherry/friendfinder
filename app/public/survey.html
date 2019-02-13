@@ -7,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.2.1/lumen/bootstrap.min.css" rel="stylesheet" integrity="sha384-9b6g9YkA3pNts/17Rv1oVN633iGTGjRNrBHSn2XFY0WJVdha5Ev3MOVPmJPZpFqD" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 <title>Paddy's Online Mixer</title>
 
@@ -41,7 +39,7 @@
 
             <label for="questionOne">I enjoy Janitorial work.</label>
             
-            <select class="form-control" id="questionOne">
+            <select class="form-control chosen-select" id="questionOne">
 
                 <option value="empty">Choose an option</option>
                 <option value="1">1</option>
@@ -58,7 +56,7 @@
 
                 <label for="questionTwo">In high school I would be flocked by my minions</label>
                 
-                <select class="form-control" id="questionTwo">
+                <select class="form-control chosen-select" id="questionTwo">
     
                     <option value="empty">Choose an option</option>
                     <option value="1">1</option>
@@ -75,7 +73,7 @@
 
                     <label for="questionThree">I have a lot of money</label>
                     
-                    <select class="form-control" id="questionThree">
+                    <select class="form-control chosen-select" id="questionThree">
         
                         <option value="empty">Choose an option</option>
                         <option value="1">1</option>
@@ -92,7 +90,7 @@
 
                     <label for="questionFour">Through Christ all things are possible</label>
                         
-                    <select class="form-control" id="questionFour">
+                    <select class="form-control chosen-select" id="questionFour">
             
                         <option value="empty">Choose an option</option>
                         <option value="1">1</option>
@@ -109,7 +107,7 @@
 
                     <label for="questionFive">I am frequently told I have bird-like features</label>
                             
-                    <select class="form-control" id="questionFive">
+                    <select class="form-control chosen-select" id="questionFive">
                 
                         <option value="empty">Choose an option</option>
                         <option value="1">1</option>
@@ -126,7 +124,7 @@
 
                     <label for="questionSix">I am a black belt but haven't subscribed to one type of karate</label>
                                 
-                        <select class="form-control" id="questionSix">
+                        <select class="form-control chosen-select" id="questionSix">
                     
                                 <option value="empty">Choose an option</option>
                                 <option value="1">1</option>
@@ -143,7 +141,7 @@
 
                     <label for="questionSeven">Nobody can remember my name</label>
                                     
-                        <select class="form-control" id="questionSeven">
+                        <select class="form-control chosen-select" id="questionSeven">
                         
                                 <option value="empty">Choose an option</option>
                                 <option value="1">1</option>
@@ -160,7 +158,7 @@
 
                     <label for="questionEight">I often go to the gym</label>
                                         
-                        <select class="form-control" id="questionEight">
+                        <select class="form-control chosen-select" id="questionEight">
                             
                                 <option value="empty">Choose an option</option>
                                 <option value="1">1</option>
@@ -177,7 +175,7 @@
 
                     <label for="questionNine">I am entrepreneurial</label>
                                             
-                        <select class="form-control" id="questionNine">
+                        <select class="form-control chosen-select" id="questionNine">
                                 
                                 <option value="empty">Choose an option</option>
                                 <option value="1">1</option>
@@ -194,7 +192,7 @@
 
                     <label for="questionTen">I would consider myself somewhat of a comedian</label>
                                                 
-                        <select class="form-control" id="questionTen">
+                        <select class="form-control chosen-select" id="questionTen">
                                     
                                 <option value="empty">Choose an option</option>
                                 <option value="1">1</option>
@@ -217,7 +215,7 @@
         
     </div>
 
-    <div class="modal">
+    <div id="results-modal" class="modal">
 
             <div class="modal-dialog" role="document">
 
@@ -239,7 +237,7 @@
 
                   <h2 id="bestFriend"></h2>
 
-                  <img id="bestFriendPhoto" src="#">
+                  <img id="bestFriendPhoto match-img" src="#">
 
                 </div>
 
@@ -254,8 +252,13 @@
             </div>
 
           </div>
+          <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+         <script type="text/javascript">
+          
 
-          <script type="text/javascript">
             // Chosen CSS
             var config = {
               ".chosen-select": {},
@@ -306,16 +309,16 @@
                   name: $("#name").val(),
                   photo: $("#photo").val(),
                   scores: [
-                    $("#q1").val(),
-                    $("#q2").val(),
-                    $("#q3").val(),
-                    $("#q4").val(),
-                    $("#q5").val(),
-                    $("#q6").val(),
-                    $("#q7").val(),
-                    $("#q8").val(),
-                    $("#q9").val(),
-                    $("#q10").val()
+                    $("#questionOne").val(),
+                    $("#questionTWo").val(),
+                    $("#questionThree").val(),
+                    $("#questionFour").val(),
+                    $("#questionFive").val(),
+                    $("#questionSix").val(),
+                    $("#questionSeven").val(),
+                    $("#questionEight").val(),
+                    $("#questionNine").val(),
+                    $("#questionTen").val()
                   ]
                 };
         
